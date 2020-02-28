@@ -105,8 +105,21 @@ class StudentPortal extends React.Component {
         if(search === ""){
             passStudents = students;
         }else{
-            const students = this.state.students.filter(student => student.name.toLowerCase() == search.toLowerCase() || student.dept.toLowerCase() == search.toLowerCase());
-            // this.setState({searchStudents: students});
+
+
+
+
+
+            const students = this.state.students.filter(student => {
+
+                let fltr = search.toLowerCase()
+
+                if (student.name.toLowerCase().indexOf(fltr) > -1 || student.dept.toLowerCase().indexOf(fltr) > -1 ) {
+                    return true;
+                } else {
+                    return false
+                }
+             });
 
             passStudents = students
         }
