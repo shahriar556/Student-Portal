@@ -1,0 +1,45 @@
+.portal_list {
+    width: 550px;
+    margin: 0 auto;
+    border: 1px solid #b1b1b1;
+    padding: 30px;
+    float: left;
+}
+.pcontainer{
+    width: 1111px;
+    margin: 0 auto;
+}
+.basicForm {
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid #a4a4a4;
+    padding: 20px;
+    margin-top: 40px;
+    float: left;
+    margin-right: 53px;
+}
+.main_portal {
+    width: 80%;
+    margin: 100px auto;
+}
+
+.grid_view h6{margin: 0;background-color: #e8e1b1;
+    display: inline-block;
+    padding: 0 4px;}
+    .form h3,
+.table_view h3,
+.list_view h3,
+.grid_view h3{margin-bottom: 30px;}
+.grid_view .item{
+    border: 1px solid #c7c7c7;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+.grid_view .item h5{margin: 0;}
+
+
+.list_view {}
+.list_view p{margin: 0;}
+.list_view {}
+.list_view {}
+.list_view {}
