@@ -23,10 +23,15 @@ class StudentPortal extends React.Component {
             {id:"slk3fs5j34",name:"Rasel Ahmad",dept:"CSE"},
             {id:"slk3fs5jd34",name:"Fuad Ahmad",dept:"SWE"}
         ],
+        searchStudents: [
+            {id:"slk35j34",name:"Shahriar Ahmad",dept:"SWE"},
+            {id:"slk3ewr",name:"Rifat Ahmad",dept:"EEE"}
+        ],
         editable: false,
         selectedStudent: null,
         viewStatus: "1",
-        alertMsg: null
+        alertMsg: null,
+        search: ""
     }
 
     handleViewChange = n => {
@@ -76,13 +81,17 @@ class StudentPortal extends React.Component {
         // console.log(this.state)
     }
 
+    handelSearch = e => {
+        this.setState({search:e.target.value})
+    }
+
     render(){
         if(this.state.alertMsg){
             setTimeout( () => {
                 this.setState({alertMsg: null})
             }, 5000);
         }
-        const {students,viewStatus,editable,selectedStudent} = this.state;
+        const {students,viewStatus,editable,selectedStudent,searchStudents,search} = this.state;
         let editableStudent = null;
         
         let initialValues = {name: "",dept: ""}
@@ -92,6 +101,15 @@ class StudentPortal extends React.Component {
             initialValues.dept = editableStudent.dept;
             
         }
+        let passStudents = []
+        if(search === ""){
+            passStudents = students;
+        }else{
+            const students = this.state.students.filter(student => student.name.toLowerCase() == search.toLowerCase() || student.dept.toLowerCase() == search.toLowerCase());
+            // this.setState({searchStudents: students});
+
+            passStudents = students
+        }
 
         return (
             <div className="main_portal">
@@ -100,7 +118,7 @@ class StudentPortal extends React.Component {
                     <div className="col-lg-6 form">
                         
                         <h3>{editable ? "Update Studant Information" : "Create New Student"}</h3>
-                        <Formik 
+                        <Formik
                             initialValues={initialValues}
                             enableReinitialize="true"
                             onSubmit={(value,formikBag) => {
@@ -121,13 +139,24 @@ class StudentPortal extends React.Component {
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Success: </strong> {this.state.alertMsg}
                         </div>}
+
+
+                        {/* <input type="text" 
+                            value={this.state.search} 
+                            onChange={this.handelSearch} 
+                            className="search" 
+                            placeholder="Search by Name or Dept"
+                        /> */}
                     </div>
+                    
                     <PortalView 
-                        students={students} 
+                        students={passStudents}
                         handleEdit={this.handleEdit}
                         handleDelete={this.handleDelete}
                         handleViewChange={this.handleViewChange}
                         viewStatus={viewStatus}
+                        handelSearch={this.handelSearch}
+                        search={this.state.search} 
                     />
                     
                 </div>

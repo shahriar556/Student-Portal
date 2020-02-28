@@ -4,7 +4,7 @@ import PortalList from  './portalList'
 import PortalGrid from  './portalGrid'
 import PortalTable from './portalTable'
 
-const PortalView = ({students,handleEdit,handleDelete,handleViewChange,viewStatus}) => {
+const PortalView = ({students,handleEdit,handleDelete,handleViewChange,viewStatus,handelSearch,search}) => {
     return (
         <div className="col-lg-6 viw">
             <div className="d-flex justify-content-end">
@@ -12,6 +12,13 @@ const PortalView = ({students,handleEdit,handleDelete,handleViewChange,viewStatu
             <button onClick={() => handleViewChange("2")} className={`btn btn-${viewStatus === "2" ? "success" : "info"} mr-2`}>Grid View</button>
             <button onClick={() => handleViewChange("3")} className={`btn btn-${viewStatus === "3" ? "success" : "info"} mr-2`}>Table View</button>
             </div>
+
+            <input type="text" 
+                value={search} 
+                onChange={handelSearch} 
+                className="search" 
+                placeholder="Search by Name or Dept"
+            />
 
             {viewStatus === "1" && 
                 <PortalList 
