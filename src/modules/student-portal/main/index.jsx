@@ -23,10 +23,6 @@ class StudentPortal extends React.Component {
             {id:"slk3fs5j34",name:"Rasel Ahmad",dept:"CSE"},
             {id:"slk3fs5jd34",name:"Fuad Ahmad",dept:"SWE"}
         ],
-        searchStudents: [
-            {id:"slk35j34",name:"Shahriar Ahmad",dept:"SWE"},
-            {id:"slk3ewr",name:"Rifat Ahmad",dept:"EEE"}
-        ],
         editable: false,
         selectedStudent: null,
         viewStatus: "1",
@@ -91,7 +87,7 @@ class StudentPortal extends React.Component {
                 this.setState({alertMsg: null})
             }, 5000);
         }
-        const {students,viewStatus,editable,selectedStudent,searchStudents,search} = this.state;
+        const {students,viewStatus,editable,selectedStudent,search} = this.state;
         let editableStudent = null;
         
         let initialValues = {name: "",dept: ""}
