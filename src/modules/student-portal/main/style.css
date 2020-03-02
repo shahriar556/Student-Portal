@@ -46,4 +46,12 @@
 
 .search {margin: 15px;
     padding: 3px 10px;
-    width: 34%;}
+    width: 34%;
+    position: absolute;
+    right: 14px;}
+@media (max-width: 600px) {
+    .main_portal {
+        width: 100%;
+    }
+    .form{padding: 0 40px;}
+}

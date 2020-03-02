@@ -1,0 +1,7 @@
+.invalid-feedback {
+    position: absolute;
+    left: 0;
+    text-align: right;
+    bottom: -19px;
+}
+.form-group {position: relative;}
