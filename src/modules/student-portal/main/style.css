@@ -55,3 +55,9 @@
     }
     .form{padding: 0 40px;}
 }
+
+.Page.navigation {
+    margin-top: 22px;
+    float: right;
+    padding-right: 16px;
+}
